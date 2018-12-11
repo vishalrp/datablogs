@@ -55,4 +55,47 @@ new_df = df.loc[df['temp'] > 50, :]
 
 ```
 
+#### 6. What if I had multiple things to filter on?
 
+```
+# Get only rows with city = Irvine OR London
+df[(df['city'] == 'Irvine') | (df['city'] == 'London')]
+
+```
+
+#### 7. Group by and compute metrics?
+
+```
+# Say we had temp data for each month for 2 cities.
+
+df = pd.DataFrame({'city': ['London']*12 + ['Irvine']*12,
+                   'temp': [40, 42, 45, 50, 60, 72, 80, 81, 60, 55, 40, 32,
+                            50, 52, 48, 55, 68, 73, 85, 90, 72, 68, 60, 51],
+                   'month': list(range(1, 13)) + list(range(1, 13)),
+                   'year': [2018]*24,
+                   'season': ['winter', 'winter', 'winter', 'spring', 'spring', 'spring',
+                              'summer', 'summer', 'summer', 'fall', 'fall', 'fall']*2})
+
+# Mean temperature by city
+df.groupby('city')['temp'].mean()                                                                                    
+
+# Mean temperature by city, season
+df.groupby(['city', 'season'])['temp'].mean()
+
+Max and mean temperature by city?
+new_df = df.groupby('city').agg({'temp': ['mean', 'max']})
+
+# new_df has multiple levels in columns, you can remove it by doing 
+new_df.columns = new_df.columns.droplevel()    
+
+# Let's make agg complicated -- group by city and season, and compute mean and max for temp and max for value of year. 
+new_df = df.groupby(['city', 'season']).agg({'temp': ['mean', 'max'], 'year': 'max'})  
+# You can also explicityly reset column names
+new_df.columns = ['temp_mean', 'temp_max', 'year']
+new_df.reset_index() 
+
+# now new_df looks like a regular table with default index.
+
+
+
+```
