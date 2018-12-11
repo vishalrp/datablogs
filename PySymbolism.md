@@ -4,10 +4,10 @@ Python is considered one of the most readable languages because the syntax was d
 
 However, all the symbols and syntax can still be confusing, so let's explore that a little in this post.
 
-####1. When is # (called hash) used?
+#### 1. When is # (called hash) used?
 To comment your code– any line starting with # is ignored by Python during execution.
 
-####2. Where are { } (also called braces or curly-braces or curly-brackets) used?
+#### 2. Where are { } (also called braces or curly-braces or curly-brackets) used?
 In python we use them in 2 places:
 
 ```python
@@ -90,7 +90,7 @@ point = (2, 4)
 # tuple defining "point" with 2 and 4 and the values in the tuple.
 ```
 
-####5. When is . (dot) used?
+#### 5. When is . (dot) used?
 In Python . is used to refer to variables or functions attached to a python object.
 
 ```python
@@ -113,9 +113,10 @@ import matplotlib.pyplot as plt
 
 #### 6. Finally, when is : (called colon) used?
 IN PYTHON : CAN MEAN 3 THINGS
-To define the start of a new code-block. For instance code that goes inside for loop, or if condition, or inside a with block.
-Used when defining a dictionary– {key: value}
-Used when defining a range or a slice- cities[0:2]
+- To define the start of a new code-block. For instance code that goes inside for loop, or if condition, or inside a with block.
+- Used when defining a dictionary– {key: value}
+- Used when defining a range or a slice- cities[0:2]
+
 EXAMPLES FOR 1
 ```python
 for i in range(5):
