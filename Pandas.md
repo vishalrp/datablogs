@@ -112,3 +112,9 @@ df_with_country = df.merge(df_country, on='city')
 
 ```
 
+#### 9. Row with hottest month in Irvine?
+
+```
+df_with_country.sort_values(by='temp', ascending=False).iloc[0]
+```
+
