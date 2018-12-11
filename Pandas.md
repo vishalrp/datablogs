@@ -82,7 +82,7 @@ df.groupby('city')['temp'].mean()
 # Mean temperature by city, season
 df.groupby(['city', 'season'])['temp'].mean()
 
-Max and mean temperature by city?
+Max and mean temperature by city and store into a new dataframe?
 new_df = df.groupby('city').agg({'temp': ['mean', 'max']})
 
 # new_df has multiple levels in columns, you can remove it by doing 
@@ -90,12 +90,25 @@ new_df.columns = new_df.columns.droplevel()
 
 # Let's make agg complicated -- group by city and season, and compute mean and max for temp and max for value of year. 
 new_df = df.groupby(['city', 'season']).agg({'temp': ['mean', 'max'], 'year': 'max'})  
+
 # You can also explicityly reset column names
 new_df.columns = ['temp_mean', 'temp_max', 'year']
 new_df.reset_index() 
 
 # now new_df looks like a regular table with default index.
 
+```
 
+#### 8. What if I wanted to merge extra information?
+
+```python
+
+# Say you have country in another dataframe:
+df_country = pd.DataFrame([{'country': 'UK', 'city': 'London'},
+                           {'country': 'USA', 'city': 'Irvine'}])
+df_with_country = df.merge(df_country, on='city')
+
+# now df_with_country has all the columns from df + all the columns from df_country by joining/merging on the city column. i.e. country was added to the data frame.
 
 ```
+
