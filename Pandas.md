@@ -86,7 +86,7 @@ df.groupby('city')['temp'].mean()
 # Mean temperature by city, season
 df.groupby(['city', 'season'])['temp'].mean()
 
-Max and mean temperature by city and store into a new dataframe?
+# Max and mean temperature by city and store into a new dataframe?
 new_df = df.groupby('city').agg({'temp': ['mean', 'max']})
 
 # new_df has multiple levels in columns, you can remove it by doing 
