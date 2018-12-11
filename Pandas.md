@@ -61,6 +61,10 @@ new_df = df.loc[df['temp'] > 50, :]
 # Get only rows with city = Irvine OR London
 df[(df['city'] == 'Irvine') | (df['city'] == 'London')]
 
+# or 
+filter_list = ['Irvine', 'London']
+df[df['city'].isin(filter_list)]
+
 ```
 
 #### 7. Group by and compute metrics?
