@@ -57,7 +57,7 @@ new_df = df.loc[df['temp'] > 50, :]
 
 #### 6. What if I had multiple things to filter on?
 
-```
+```python
 # Get only rows with city = Irvine OR London
 df[(df['city'] == 'Irvine') | (df['city'] == 'London')]
 
@@ -69,7 +69,7 @@ df[df['city'].isin(filter_list)]
 
 #### 7. Group by and compute metrics?
 
-```
+```python
 # Say we had temp data for each month for 2 cities.
 
 df = pd.DataFrame({'city': ['London']*12 + ['Irvine']*12,
@@ -118,7 +118,7 @@ df_with_country = df.merge(df_country, on='city')
 
 #### 9. Row with hottest month in Irvine?
 
-```
+```python
 df_with_country.sort_values(by='temp', ascending=False).iloc[0]
 ```
 
