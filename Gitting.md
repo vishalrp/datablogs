@@ -7,7 +7,8 @@ is a version control system. GitHub offers a lot of additional functionality on 
 
 
 #### When working directly on master, what is the workflow?
-```git status
+```
+git status
 git add <files/directories>
 git commit -m "<message>"
 git pull
